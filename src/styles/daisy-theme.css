@@ -1,0 +1,16 @@
+/* daisyUI theme customization placeholder */
+/* Customize the values later here. */
+
+[data-theme='mytheme'] {
+  --color-primary: #7c3aed;
+  --color-secondary: #ec4899;
+  --color-accent: #22c55e;
+  --color-base-100: #f8fafc;
+  --color-base-200: #e2e8f0;
+  --color-base-300: #cbd5e1;
+  --color-neutral: #374151;
+  --color-info: #3b82f6;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+}
