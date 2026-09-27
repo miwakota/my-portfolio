@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+個人ポートフォリオサイトの開発用リポジトリです。React + Vite + TypeScript をベースに、Tailwind CSS と daisyUI を使って構成しています。
 
-Currently, two official plugins are available:
+## 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 作品一覧の表示
+- 作品詳細の導線設計
+- ナビゲーションとモバイル対応レイアウト
+- GitHub Pages へのデプロイを前提とした base 設定
 
-## React Compiler
+## 技術スタック
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- daisyUI
+- React Router
 
-## Expanding the ESLint configuration
+## 前提条件
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 22 以上
+- pnpm
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## セットアップ
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 開発実行
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+dev
 ```
+
+または:
+
+```bash
+pnpm dev
+```
+
+ローカル開発サーバーが起動し、ブラウザで確認できます。
+
+## ビルド
+
+```bash
+pnpm build
+```
+
+本番用の静的ファイルは `dist/` に出力されます。
+
+## デプロイ
+
+GitHub Pages を利用する前提です。
+
+```bash
+pnpm deploy
+```
+
+このコマンドは以下を順に実行します。
+
+1. `pnpm build`
+2. `dist` を GitHub Pages 配信用として公開
+
+## ディレクトリ構成
+
+```text
+my-portfolio/
+├─ public/
+│  └─ works/
+├─ src/
+│  ├─ assets/
+│  ├─ components/
+│  ├─ data/
+│  ├─ pages/
+│  ├─ styles/
+│  ├─ types/
+│  ├─ App.css
+│  ├─ App.tsx
+│  ├─ index.css
+│  └─ main.tsx
+├─ index.html
+├─ package.json
+├─ tsconfig.json
+├─ tsconfig.app.json
+├─ tsconfig.node.json
+├─ vite.config.ts
+├─ eslint.config.js
+├─ README.md
+├─ pnpm-lock.yaml
+└─ .github/
+```
+
+## 注意事項
+
+- 現在の状態はテンプレートとして構成中のため、コンテンツや文言は仮のものが含まれています。
+- 本番公開時は、作品データやプロフィール情報、画像、文言を実データへ置き換えてください。
+- このプロジェクトは GitHub Pages の固定配信先を前提としており、`vite.config.ts` の `base` は `/my-portfolio/` に固定されています。
+
+## 今後の方向性
+
+- 実際のプロフィール情報への置き換え
+- 作品一覧データの確定
+- About セクションの実文化
+- SEO とメタ情報の整理
+- UI の細部調整とアクセシビリティ向上
